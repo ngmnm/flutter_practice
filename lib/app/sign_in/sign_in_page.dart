@@ -1,11 +1,21 @@
 import 'package:code_with_andrea/Common_widgets/custom_raisedButton.dart';
+import 'package:code_with_andrea/app/sign_in/email_sign_in_page.dart';
 import 'package:code_with_andrea/app/sign_in/sign_in_button.dart';
 import 'package:code_with_andrea/app/sign_in/social_sign_in_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatelessWidget {
-  @override
+  void _signInWithEmail(BuildContext context) {
+    //todo show email sign page
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        fullscreenDialog: true,
+        builder: (context) => EmailSignInPage(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +37,6 @@ class SignInPage extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             height: 50.0,
-
           ),
           SizedBox(height: 48.0),
           SocialSignInButton(
@@ -35,7 +44,7 @@ class SignInPage extends StatelessWidget {
             text: 'Sign in with Google',
             textColor: Colors.black87,
             color: Colors.white,
-            onPressed: (){},
+            onPressed: () {},
           ),
           SizedBox(height: 8.0),
           SocialSignInButton(
@@ -43,14 +52,14 @@ class SignInPage extends StatelessWidget {
             text: 'Sign in with Facebook',
             textColor: Colors.white,
             color: Color(0xFF334D92),
-            onPressed:  (){},
+            onPressed: () {},
           ),
           SizedBox(height: 8.0),
           SignInButton(
             text: 'Sign in with email',
             textColor: Colors.white,
             color: Colors.teal[700],
-            onPressed:  (){},
+            onPressed: () => _signInWithEmail(context),
           ),
           SizedBox(height: 8.0),
           Text(
@@ -63,12 +72,13 @@ class SignInPage extends StatelessWidget {
             text: 'Go anonymous',
             textColor: Colors.black,
             color: Colors.lime[300],
-            onPressed:  (){},
+            onPressed: () {},
           ),
         ],
       ),
     );
   }
+
   void _signInWithGoogle() {
     //todo : auth with google
   }
